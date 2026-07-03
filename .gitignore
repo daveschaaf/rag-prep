@@ -1,0 +1,18 @@
+# Local Claude Code config
+.claude/
+
+# Third-party MIDS course material — not for publication
+Module_09_*.ipynb
+
+# Jupyter / Colab
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# OS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
