@@ -18,9 +18,11 @@ and an **answer key** to check yourself against *after* attempting.
 
 | Notebook | What it is |
 |----------|------------|
-| **`RAG_SEC_Pipeline_PRACTICE.ipynb`** | The one you work through. The RAG core at each stage is a `### YOUR CODE HERE` blank; SEC-fetch and model-load boilerplate are provided. |
-| **`RAG_SEC_Pipeline.ipynb`** | The answer key — full working code. |
-| `Module_09_..._Langchain_Mistral...ipynb` | The course RAG notebook this exercise is built from (arXiv corpus, happy-path). |
+| **`RAG_SEC_Pipeline_PRACTICE.ipynb`** | **Phase 1** — the pipeline. The RAG core at each stage is a `### YOUR CODE HERE` blank; SEC-fetch and model-load boilerplate are provided. |
+| **`RAG_SEC_Pipeline.ipynb`** | Phase 1 answer key — full working code. |
+| **`RAG_SEC_Eval_PRACTICE.ipynb`** | **Phase 2** — evaluation & experimentation. Gold set, retrieval metrics, a Claude LLM-judge, and one controlled experiment. |
+| **`RAG_SEC_Eval.ipynb`** | Phase 2 answer key. |
+| `Module_09_..._Langchain_Mistral...ipynb` | The course RAG notebook Phase 1 is built from (arXiv corpus, happy-path). |
 
 Each stage follows: **Why** → **write the blank** → **instrument it** (measure the effect) →
 a **🎤 Talk-track** note framing how you'd discuss the decision in an interview.
@@ -44,9 +46,17 @@ Every node of the pipeline, on real **SEC 10-K filings** (AAPL / MSFT / NVDA):
 - **Workflow:** run top-to-bottom **once** (re-running the model-load cell can OOM the T4);
   fill the blanks, then diff against the answer key.
 
-## Phase 2 — the evaluation / experimentation layer *(next exercise)*
+## Phase 2 — the evaluation / experimentation layer
 
-This build stops at a *working* pipeline. Phase 2 makes it a *measured* one — the part of the
-diagram most candidates skip: a gold Q/A set, retrieval metrics (recall@k / MRR), an
-**LLM-as-judge (Claude)** for faithfulness/relevance, and one controlled experiment that changes
-a single knob and measures the effect. Stubbed at the bottom of the pipeline notebook.
+Phase 1 stops at a *working* pipeline; Phase 2 makes it a *measured* one — the part of the diagram
+most candidates skip:
+
+- **Gold set** — synthetic Q/A generated from known chunks (ground truth without hand-labeling).
+- **Retrieval metrics** — recall@k / MRR (runs first, no GPU — survives a T4 OOM).
+- **Answer eval** — faithfulness & relevance scored by an **LLM-judge (Claude `claude-opus-4-8`)**,
+  with structured output. Local Mistral generates; Claude judges (hybrid).
+- **One experiment** — rerank on vs. off, held-out on the gold set, reported as an effect size with
+  a bootstrap 95% CI.
+
+Same runtime requirements as Phase 1, plus an `ANTHROPIC_API_KEY` Colab secret for the judge.
+Set `USE_LOCAL_LLM = False` in the generator cell to fall back to Claude generation if the T4 OOMs.
