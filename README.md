@@ -22,6 +22,8 @@ and an **answer key** to check yourself against *after* attempting.
 | **`RAG_SEC_Pipeline.ipynb`** | Phase 1 answer key — full working code. |
 | **`RAG_SEC_Eval_PRACTICE.ipynb`** | **Phase 2** — evaluation & experimentation. Gold set, retrieval metrics, a Claude LLM-judge, and one controlled experiment. |
 | **`RAG_SEC_Eval.ipynb`** | Phase 2 answer key. |
+| **`RAG_SEC_Agent_PRACTICE.ipynb`** | **Phase 3** — agentic RAG. A hand-rolled ReAct loop over Claude tool-use: search → self-critique → re-query → cite/abstain, with agentic eval. CPU-only. |
+| **`RAG_SEC_Agent.ipynb`** | Phase 3 answer key. |
 | `Module_09_..._Langchain_Mistral...ipynb` | The course RAG notebook Phase 1 is built from (arXiv corpus, happy-path). |
 
 Each stage follows: **Why** → **write the blank** → **instrument it** (measure the effect) →
@@ -60,3 +62,20 @@ most candidates skip:
 
 Same runtime requirements as Phase 1, plus an `ANTHROPIC_API_KEY` Colab secret for the judge.
 Set `USE_LOCAL_LLM = False` in the generator cell to fall back to Claude generation if the T4 OOMs.
+
+## Phase 3 — agentic RAG
+
+Phases 1–2 are a *chain*: a chain can't recover from a bad first retrieval. Phase 3 makes it an
+**agent** — a hand-rolled **ReAct loop** over **Claude's tool-use API** that plans, searches,
+judges whether the context is sufficient, **re-queries** if not, and answers with `[source-id]`
+citations or **abstains** when the filings don't contain the answer.
+
+- **Brain:** Claude (`claude-opus-4-8`) via tool-use; **retrieval stays local**. No local LLM →
+  **no GPU, no OOM** — a CPU Colab runtime is enough.
+- **Guardrail:** every cited id is verified against what was actually retrieved (catches fabricated
+  citations).
+- **Agentic eval:** grades *behavior* — searches per question, citation grounding, and abstention
+  on a deliberately out-of-corpus question — not just the final answer.
+
+You build the tool schema, the ReAct loop (the centerpiece), the citation check, and the agentic
+eval. Needs only the `ANTHROPIC_API_KEY` secret.
