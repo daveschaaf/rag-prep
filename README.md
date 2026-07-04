@@ -24,6 +24,8 @@ and an **answer key** to check yourself against *after* attempting.
 | **`RAG_SEC_Eval.ipynb`** | Phase 2 answer key. |
 | **`RAG_SEC_Agent_PRACTICE.ipynb`** | **Phase 3** — agentic RAG. A hand-rolled ReAct loop over Claude tool-use: search → self-critique → re-query → cite/abstain, with agentic eval. CPU-only. |
 | **`RAG_SEC_Agent.ipynb`** | Phase 3 answer key. |
+| **`RAG_SEC_Causal_PRACTICE.ipynb`** | **Phase 4** — causal eval. Treats the agent as an experimental subject: a crossover measuring the ITT and CACE of its *own* re-query decision. CPU-only. |
+| **`RAG_SEC_Causal.ipynb`** | Phase 4 answer key. |
 | `Module_09_..._Langchain_Mistral...ipynb` | The course RAG notebook Phase 1 is built from (arXiv corpus, happy-path). |
 
 Each stage follows: **Why** → **write the blank** → **instrument it** (measure the effect) →
@@ -79,3 +81,20 @@ citations or **abstains** when the filings don't contain the answer.
 
 You build the tool schema, the ReAct loop (the centerpiece), the citation check, and the agentic
 eval. Needs only the `ANTHROPIC_API_KEY` secret.
+
+## Phase 4 — causal evaluation (the agent as an experimental subject)
+
+Input evaluation scores a component on fixed inputs; **model/behavior evaluation** scores the
+agent's *own decisions*. Phase 4 measures the causal effect of the agent's choice to **re-query**:
+
+- **Crossover design** — every question runs through both arms (control = capped at one retrieval;
+  treatment = free to re-query), so the counterfactual is observed per question.
+- **Two estimands** — **ITT** (effect of *offering* self-correction, over all questions) and
+  **CACE** (effect among the **compliers** — questions that actually re-queried). `ITT = P(re-query) × CACE`.
+  Because the subject is a model, the crossover recovers CACE directly (no IV needed).
+- **Correct inference** — repeated runs cut outcome noise but are clustered within a question, so
+  the unit of inference is the **question**: a sign-flip permutation test for ITT and a cluster
+  bootstrap for the intervals (avoids pseudoreplication).
+
+Outcome is a **blind** completeness judge. You build the capped agent loop, the experiment, the
+estimands, and the question-level inference. CPU runtime; `ANTHROPIC_API_KEY` only.
