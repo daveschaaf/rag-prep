@@ -1,0 +1,361 @@
+{
+  "summary": {
+    "n_questions": 12,
+    "R": 3,
+    "n_runs": 36,
+    "ITT": 2.25,
+    "P_requery": 0.9722222222222222,
+    "CACE": 2.3142857142857145,
+    "ITT_CI": [
+      1.4166666666666667,
+      3.111111111111111
+    ],
+    "CACE_CI": [
+      1.4,
+      3.1666666666666665
+    ],
+    "perm_p": 0.0026,
+    "model": "claude-opus-4-8",
+    "outcome": "blind completeness judge (1-5)"
+  },
+  "questions": [
+    "What are NVIDIA's main risk factors, and how does it describe competition?",
+    "What does Apple say about its revenue, and what risks does it tie to supply chain?",
+    "How does Microsoft describe its cloud business and the competition it faces there?",
+    "What does NVIDIA say about data-center demand and the risks to that demand?",
+    "Summarize Apple's regulatory risks and its risks related to foreign operations.",
+    "How does Microsoft describe both its AI investments and the risks around them?",
+    "What are Apple's main product risks, and what does it say about R&D spending?",
+    "What does NVIDIA say about its supply concentration and about intellectual property?",
+    "How does Microsoft describe its competition, and what does it say about cybersecurity risk?",
+    "What are the main risk factors Apple highlights?",
+    "How does NVIDIA describe its gaming segment?",
+    "What does Microsoft say about its revenue sources?"
+  ],
+  "records": [
+    {
+      "q_idx": 0,
+      "run": 0,
+      "Y_control": 1,
+      "Y_treated": 5,
+      "D": 1,
+      "hops": 5,
+      "tokens": 16087
+    },
+    {
+      "q_idx": 0,
+      "run": 1,
+      "Y_control": 1,
+      "Y_treated": 5,
+      "D": 1,
+      "hops": 5,
+      "tokens": 16074
+    },
+    {
+      "q_idx": 0,
+      "run": 2,
+      "Y_control": 1,
+      "Y_treated": 5,
+      "D": 1,
+      "hops": 4,
+      "tokens": 15040
+    },
+    {
+      "q_idx": 1,
+      "run": 0,
+      "Y_control": 5,
+      "Y_treated": 5,
+      "D": 1,
+      "hops": 3,
+      "tokens": 14714
+    },
+    {
+      "q_idx": 1,
+      "run": 1,
+      "Y_control": 1,
+      "Y_treated": 5,
+      "D": 1,
+      "hops": 3,
+      "tokens": 14252
+    },
+    {
+      "q_idx": 1,
+      "run": 2,
+      "Y_control": 5,
+      "Y_treated": 5,
+      "D": 1,
+      "hops": 2,
+      "tokens": 9697
+    },
+    {
+      "q_idx": 2,
+      "run": 0,
+      "Y_control": 1,
+      "Y_treated": 5,
+      "D": 1,
+      "hops": 3,
+      "tokens": 12644
+    },
+    {
+      "q_idx": 2,
+      "run": 1,
+      "Y_control": 1,
+      "Y_treated": 5,
+      "D": 1,
+      "hops": 3,
+      "tokens": 12732
+    },
+    {
+      "q_idx": 2,
+      "run": 2,
+      "Y_control": 1,
+      "Y_treated": 5,
+      "D": 1,
+      "hops": 3,
+      "tokens": 12697
+    },
+    {
+      "q_idx": 3,
+      "run": 0,
+      "Y_control": 1,
+      "Y_treated": 5,
+      "D": 1,
+      "hops": 4,
+      "tokens": 15285
+    },
+    {
+      "q_idx": 3,
+      "run": 1,
+      "Y_control": 1,
+      "Y_treated": 5,
+      "D": 1,
+      "hops": 4,
+      "tokens": 14956
+    },
+    {
+      "q_idx": 3,
+      "run": 2,
+      "Y_control": 1,
+      "Y_treated": 5,
+      "D": 1,
+      "hops": 4,
+      "tokens": 14720
+    },
+    {
+      "q_idx": 4,
+      "run": 0,
+      "Y_control": 1,
+      "Y_treated": 5,
+      "D": 1,
+      "hops": 4,
+      "tokens": 14466
+    },
+    {
+      "q_idx": 4,
+      "run": 1,
+      "Y_control": 1,
+      "Y_treated": 4,
+      "D": 1,
+      "hops": 4,
+      "tokens": 14836
+    },
+    {
+      "q_idx": 4,
+      "run": 2,
+      "Y_control": 1,
+      "Y_treated": 4,
+      "D": 1,
+      "hops": 4,
+      "tokens": 14663
+    },
+    {
+      "q_idx": 5,
+      "run": 0,
+      "Y_control": 1,
+      "Y_treated": 5,
+      "D": 1,
+      "hops": 4,
+      "tokens": 14653
+    },
+    {
+      "q_idx": 5,
+      "run": 1,
+      "Y_control": 1,
+      "Y_treated": 5,
+      "D": 1,
+      "hops": 4,
+      "tokens": 14714
+    },
+    {
+      "q_idx": 5,
+      "run": 2,
+      "Y_control": 1,
+      "Y_treated": 5,
+      "D": 1,
+      "hops": 4,
+      "tokens": 14800
+    },
+    {
+      "q_idx": 6,
+      "run": 0,
+      "Y_control": 5,
+      "Y_treated": 5,
+      "D": 1,
+      "hops": 2,
+      "tokens": 8843
+    },
+    {
+      "q_idx": 6,
+      "run": 1,
+      "Y_control": 5,
+      "Y_treated": 5,
+      "D": 1,
+      "hops": 2,
+      "tokens": 8827
+    },
+    {
+      "q_idx": 6,
+      "run": 2,
+      "Y_control": 5,
+      "Y_treated": 5,
+      "D": 1,
+      "hops": 2,
+      "tokens": 8751
+    },
+    {
+      "q_idx": 7,
+      "run": 0,
+      "Y_control": 1,
+      "Y_treated": 1,
+      "D": 1,
+      "hops": 5,
+      "tokens": 22220
+    },
+    {
+      "q_idx": 7,
+      "run": 1,
+      "Y_control": 1,
+      "Y_treated": 3,
+      "D": 1,
+      "hops": 5,
+      "tokens": 22900
+    },
+    {
+      "q_idx": 7,
+      "run": 2,
+      "Y_control": 1,
+      "Y_treated": 1,
+      "D": 1,
+      "hops": 6,
+      "tokens": 23550
+    },
+    {
+      "q_idx": 8,
+      "run": 0,
+      "Y_control": 1,
+      "Y_treated": 5,
+      "D": 1,
+      "hops": 4,
+      "tokens": 14146
+    },
+    {
+      "q_idx": 8,
+      "run": 1,
+      "Y_control": 1,
+      "Y_treated": 5,
+      "D": 1,
+      "hops": 3,
+      "tokens": 12806
+    },
+    {
+      "q_idx": 8,
+      "run": 2,
+      "Y_control": 5,
+      "Y_treated": 5,
+      "D": 1,
+      "hops": 2,
+      "tokens": 9511
+    },
+    {
+      "q_idx": 9,
+      "run": 0,
+      "Y_control": 1,
+      "Y_treated": 5,
+      "D": 1,
+      "hops": 4,
+      "tokens": 13543
+    },
+    {
+      "q_idx": 9,
+      "run": 1,
+      "Y_control": 4,
+      "Y_treated": 5,
+      "D": 1,
+      "hops": 4,
+      "tokens": 14250
+    },
+    {
+      "q_idx": 9,
+      "run": 2,
+      "Y_control": 4,
+      "Y_treated": 4,
+      "D": 1,
+      "hops": 4,
+      "tokens": 14429
+    },
+    {
+      "q_idx": 10,
+      "run": 0,
+      "Y_control": 5,
+      "Y_treated": 5,
+      "D": 0,
+      "hops": 1,
+      "tokens": 6142
+    },
+    {
+      "q_idx": 10,
+      "run": 1,
+      "Y_control": 1,
+      "Y_treated": 5,
+      "D": 1,
+      "hops": 2,
+      "tokens": 9007
+    },
+    {
+      "q_idx": 10,
+      "run": 2,
+      "Y_control": 5,
+      "Y_treated": 5,
+      "D": 1,
+      "hops": 2,
+      "tokens": 7853
+    },
+    {
+      "q_idx": 11,
+      "run": 0,
+      "Y_control": 5,
+      "Y_treated": 5,
+      "D": 1,
+      "hops": 2,
+      "tokens": 9648
+    },
+    {
+      "q_idx": 11,
+      "run": 1,
+      "Y_control": 5,
+      "Y_treated": 5,
+      "D": 1,
+      "hops": 2,
+      "tokens": 9733
+    },
+    {
+      "q_idx": 11,
+      "run": 2,
+      "Y_control": 5,
+      "Y_treated": 5,
+      "D": 1,
+      "hops": 2,
+      "tokens": 9701
+    }
+  ]
+}
